@@ -3,19 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
+title: 小晓晓晓林
+subtitle: 
+description: 我们都如星辰,需努力活得璀璨
 keywords:
-author: John Doe
-language:
-timezone:
+author: L
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://xiaoxiaoxiaoxiaolin.github.io/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: posts/:abbrlink/
 permalink_defaults:
 
 # Directory
@@ -26,7 +26,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -35,13 +35,13 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
   
 # Home page setting
@@ -70,10 +70,20 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+# 归档页的分页设置
+archive_generator: # 归档页的配置
+  per_page: 30 # 归档页每页博客数
+  yearly: true # 按年归档
+  monthly: true # 按月归档
+
+# 标签页的分页设置
+tag_generator:
+  per_page: 20 # 标签页每页博客数
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,3 +91,35 @@ deploy:
   type: git
   repo: git@github.com:xiaoxiaoxiaoxiaolin/xiaoxiaoxiaoxiaolin.github.io.git
   branch: master
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+# RSS订阅
+plugin: hexo-generator-feed
+
+symbols_count_time:
+  symbols: true 
+  time: true 
+  total_symbols: true 
+  total_time: true 
+  exclude_codeblock: false
+
+  search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+  
+# hexo-tag-cloud
+tag_cloud:
+    textFont: Trebuchet MS, Helvetica
+    textColor: '#333'
+    textHeight: 20
+    outlineColor: '#ff7575'
+    maxSpeed: 0.1
+
+# abbrlink config
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
