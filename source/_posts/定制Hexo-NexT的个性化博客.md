@@ -119,7 +119,7 @@ rss: /atom.xml
 
 实现方法
 
-打开`H:/blog/_config.yml`文件，找到`canvas_nest`,把false改为true
+　　打开`H:/blog/_config.yml`文件，找到`canvas_nest`,把false改为true
 
 ```
 canvas_nest:
@@ -465,7 +465,7 @@ favicon:
 
 实现效果
 
-　　　打开博客根目录，运行以下命令，安装插件
+　　打开博客根目录，运行以下命令，安装插件
 
 ```
 npm install hexo-symbols-count-time --save
@@ -927,7 +927,7 @@ git push origin hexo
 {{ tagcloud({min_font: 13, max_font: 31, amount: 1000, color: true, start_color: '#9733EE', end_color: '#FF512F'}) }}
 ```
 
-　　　`start_color`和`end_color`的颜色你可以自己随意定义。
+　　`start_color`和`end_color`的颜色你可以自己随意定义。
 
 ### 参考资料：
 
@@ -943,4 +943,4 @@ git push origin hexo
 
 - #### [4块钱,用Github+Hexo搭建你的个人博客：美化篇](http://www.makcyun.top/2018/07/17/hexo02.html)
 
-　　还有一些参考的资料链接已经找不到了，所以就不一一列出了。第一次写，如有错误，欢迎指出，不胜感激。
+还有一些参考的资料链接已经找不到了，所以就不一一列出了。第一次写，如有错误，欢迎指出，不胜感激。
