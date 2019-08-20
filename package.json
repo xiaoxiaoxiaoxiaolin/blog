@@ -25,6 +25,7 @@
     "hexo-server": "^0.3.3",
     "hexo-symbols-count-time": "^0.6.0",
     "hexo-tag-cloud": "^2.0.11",
-    "hexo-wordcount": "^6.0.1"
+    "hexo-wordcount": "^6.0.1",
+    "shelljs": "^0.8.3"
   }
 }

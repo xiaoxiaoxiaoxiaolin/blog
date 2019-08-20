@@ -10,7 +10,7 @@ abbrlink: 9464af1e
 date: 2019-07-21 15:25:12
 ---
 
-<blockquote class="blockquote-center">海阔凭鱼跃，天高任鸟飞。
+<blockquote class="blockquote-center">海阔凭鱼跃，天高任鸟飞
 </blockquote>
 
 　　早在初中，就想着自己搭起一个属于自己的网站，但是没有技术又不肯学习的我，怯于尝试，一直停滞不前。大学期间终于学习了，又因为自己的懒惰，觉得很难，不肯去尝试。直至今日，我想试一试，捣鼓了好一阵子，发现认真去做了，也没有想象中的难。

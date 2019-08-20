@@ -1,11 +1,11 @@
 ---
-title: 关于
+title:
 date: 2019-07-11 10:32:29
 type: "about"
 comments: false
 ---
 
-
+<article class="post post-type-normal" style="opacity: 1; display: block; transform: translateY(0px);">
 <blockquote class="blockquote-center">
 	<font color="#e20404" font-size:16px><center>
 	 我们的征途是星辰大海！ 

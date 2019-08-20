@@ -10,7 +10,7 @@ abbrlink: ccfc6699
 date: 2019-07-22 17:02:48
 ---
 
-<blockquote class="blockquote-center">海阔凭鱼跃，天高任鸟飞。
+<blockquote class="blockquote-center">日出江花红胜火，春来江水绿如蓝
 </blockquote>
 
 　　前几天，我写了一篇关于如何使用GitHub＋Hexo搭建个人博客的博文，接下来我会以我的博客为例，讲讲如何对NexT主题的个性化定制和一些细节的优化。
@@ -935,11 +935,11 @@ git push origin hexo
 
 - #### [hexo 摸爬滚打之进阶教程](http://muyunyun.cn/posts/f55182c5/#more)
 
-- [GitHub--创建新的分支(转)](https://www.cnblogs.com/autoXingJY/p/9004724.html)
+- #### [GitHub--创建新的分支(转)](https://www.cnblogs.com/autoXingJY/p/9004724.html)
 
 - #### [打造个性超赞博客 Hexo + NexT + GitHub Pages 的超深度优化](https://io-oi.me/tech/hexo-next-optimization.html)
 
-- [hexo的next主题个性化教程:打造炫酷网站 | Moorez](shenzekun.cn/hexo的next主题个性化配置教程.html)
+- #### [hexo的next主题个性化教程:打造炫酷网站 | Moorez](shenzekun.cn/hexo的next主题个性化配置教程.html)
 
 - #### [4块钱,用Github+Hexo搭建你的个人博客：美化篇](http://www.makcyun.top/2018/07/17/hexo02.html)
 
