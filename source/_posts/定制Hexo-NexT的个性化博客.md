@@ -68,7 +68,7 @@ scheme: Pisces
 
 效果图
 
-![GitHub角标](H:\blog\source\_posts\定制Hexo-NexT的个性化博客\GitHub角标.png)
+![](定制Hexo-NexT的个性化博客/GitHub角标.png)
 
 实现方法
 
@@ -78,7 +78,7 @@ scheme: Pisces
 
 　　打开`themes/next/layout/_layout.swig`文件，在`<header></header>`之前添加代码，并把`href`改为你的博客地址
 
-![GitHub角标代码截图](H:\blog\source\_posts\定制Hexo-NexT的个性化博客\GitHub角标代码截图.png)
+![](定制Hexo-NexT的个性化博客/GitHub角标代码截图.png)
 
 #### 添加RSS订阅
 
