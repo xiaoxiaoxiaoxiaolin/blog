@@ -9,11 +9,11 @@ abbrlink: 8961bf5e
 date: 2019-09-08 11:04:06
 ---
 <blockquote class="blockquote-center">云淡风轻近午天，傍花随柳过前川。</blockquote>
-　　OSI(Open System Interconnect)，即开放式系统互联参考模型，一般都叫OSI参考模型，是ISO（国际标准化组织）在1985年提出的一个试图将各种计算机或者通信系统在世界范围内互联为网络的标准框架模型。在这一框架下详细的规定了每一层的功能，以实现开放系统环境中的互连性、相互操作性和应用的可移植性。
 
 　　OSI七层协议模型主要有：应用层(Application)、表示层(Presentation)、会话层(Session)、传输层(Transport)、网络层(Network)、数据链路层(Data Link)、物理层(Physical)。
 
 <!-- more -->
+　　OSI(Open System Interconnect)，即开放式系统互联参考模型，一般都叫OSI参考模型，是ISO（国际标准化组织）在1985年提出的一个试图将各种计算机或者通信系统在世界范围内互联为网络的标准框架模型。在这一框架下详细的规定了每一层的功能，以实现开放系统环境中的互连性、相互操作性和应用的可移植性。
 
 ### 协议
 
