@@ -1,6 +1,6 @@
 require('shelljs/global');
 try {
-    hexo.on('deployAfter', function() {//??deploy??ɺ???????
+    hexo.on('deployAfter', function() {//当deploy完成后执行备份
         run();
     });
 
