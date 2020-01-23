@@ -1,11 +1,11 @@
 require('shelljs/global');
 try {
-    hexo.on('deployAfter', function() {//当deploy完成后执行备份
+    hexo.on('deployAfter', function() {//??deploy??珊???????
         run();
     });
 
 } catch (e) {
-    console.log("产生了一个错误啊<(￣3￣)> !，错误详情为：" + e.toString());
+    console.log("浜х敓浜嗕竴涓敊璇紝閿欒璇︽儏涓猴細" + e.toString());
 }
 function run() {
     if (!which('git')) {
@@ -13,7 +13,7 @@ function run() {
         exit(1);
     } else {
         echo("======================Auto Backup Begin===========================");
-        cd('H:/blog');    //此处修改为Hexo根目录路径
+        cd('I:/hexo/blog');
         if (exec('git add --all').code !== 0) {
             echo('Error: Git add failed');
             exit(1);
