@@ -1,12 +1,13 @@
 ---
 title: Windows远程执行命令
 copyright: true
-date: 2020-01-23 14:21:17
 categories: 内网渗透
 tags:
   - Windows
   - 远程命令执行
   - 内网渗透
+abbrlink: bf80d0ef
+date: 2020-01-23 14:21:17
 ---
 
 <blockquote class="blockquote-center">只愿君心似我心，定不负相思意</blockquote>
